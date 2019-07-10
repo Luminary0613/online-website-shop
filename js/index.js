@@ -1,4 +1,6 @@
-//top公告栏
+(function(){
+    "use strict";
+    //top公告栏
 // var t=setInterval(() => {
 //     $(".top-l ul").find("li").eq(0).stop().animate({
 //         marginTop:"-35px"
@@ -8,9 +10,12 @@
 // }, 2000);
 class Ajax{
     constructor(){
-        this.url="http://localhost/online-website/data/goods.json";
+        this.url="http://localhost:8181/data/goods.json";
+        this.url2="http://localhost:8181/data/goods2.json"
         this.lbox=document.querySelector("#hot .main-l");
+        console.log(this.lbox);
         this.oul=document.querySelector(".main-r ul");
+        this.rlist=document.querySelector("#timeshop .list-r");
         this.init();
     }
     init(){
@@ -21,6 +26,14 @@ class Ajax{
                 that.res=res;
                 console.log(that.res)
                 that.display();
+            }
+        })
+        $.ajax({
+            url:this.url2,
+            success:function(res2){
+                that.res2=res2;
+                console.log(that.res2)
+                that.display2();
             }
         })
     }
@@ -36,25 +49,107 @@ class Ajax{
                 <p>${this.res[0].price}</p>
             </div>`;
         this.lbox.innerHTML=str1;
+        console.log(this.lbox);
+
         var str2="";
         for(var i=1;i<this.res.length;i++){
         str2 += `<li>
                     <span class="mark">${this.res[i].mark}</span>
-                    <a class="img"><img src="${this.res[i].src}"/></a>
+                    <a href="detail.html?goodsId=${this.res[i].goodsId}" class="img"><img src="${this.res[i].src}"/></a>
                     <div class="text">
                         <p>
                             <span class="te1">&nbsp;${this.res[i].sign}&nbsp; </span>
                                 
                         </p>
                         
-                        <a href="#" class="title">${this.res[i].name}</a>
+                        <a href="detail.html?goodsId=${this.res[i].goodsId}" class="title">${this.res[i].name}</a>
                         <h3>${this.res[i].price}</h3>
                     </div>
                 </li>`;
         }
         this.oul.innerHTML = str2;
         // this.addEvent();
+
+        //鼠标滑过效果   人气推荐
+            $("#hot .main-l").find(".img").hover(function(){
+                $(this).find("img").stop().animate({
+                    width:"330px",
+                
+                },1000)
+            },function(){
+                $(this).find("img").stop().animate({
+                    width:"320px",
+                
+                },1000)
+            })
+
+            $("#hot .main-r").find("li").hover(function(){
+                $(this).find("img").stop().animate({
+                    width:"190px",
+                
+                },1000)
+            },function(){
+                $(this).find("img").stop().animate({
+                    width:"180px",
+                
+                },1000)
+            })
+
+            $("#hot .main").find(".title").hover(function(){
+                $(this).css({
+                    color:"#b6a079"
+                })
+            },function(){
+                $(this).css({
+                    color:"#333"
+                })
+            })
+
+            $("#hot .margin").children(".title").children("span").click(function(){
+                // console.log($(this))
+                $(this).addClass("active").siblings().removeClass("active");
+                // console.log($(this).index());
+                // console.log($("#hot .margin").find(".main").eq($(this).index()));
+                $("#hot .margin").find(".main").eq($(this).index()-1).css({
+                    display:"block"
+                }).siblings(".main").css({
+                    display:"none"
+                })
+            })  
         
+    }
+    display2(){
+        var str3="";
+        for(var i=0;i<this.res2.length;i++){
+        str3 += `<div class="mainbox">
+                    <img src="${this.res2[i].src}" class="img"/>
+                    <div class="rbox">
+                        <h3 class="hover">${this.res2[i].name}</h3>
+                        <h4>${this.res2[i].tip}</h4>
+                        <div class="stock">
+                            <div class="kuang">
+                                <p class="bar">
+                            </div>
+                            <span class="rest">还剩37件</span>
+                        </div>
+                        <p>限时价<span>${this.res2[i].price}</span><i>${this.res2[i].oldprice}</i></p>
+                        <a href="#" class="shop">立即抢购</a>
+                    </div>
+                </div>`;
+        }
+        this.rlist.innerHTML = str3;
+        // this.addEvent();
+        //立即抢购按钮 鼠标滑过效果
+        $("body").find("a.shop").hover(function(){
+            // console.log($(this))
+            $(this).css({
+                background: "#df5f5f"
+            })
+        },function(){
+            $(this).css({
+                background: "#be4141"
+            })
+        })
         
     }
 }
@@ -225,7 +320,7 @@ $("#hot .margin").children(".title").children("span").click(function(){
 
 //立即抢购按钮 鼠标滑过效果
 $("body").find("a.shop").hover(function(){
-    console.log($(this))
+    // console.log($(this))
     $(this).css({
         background: "#df5f5f"
     })
@@ -496,3 +591,164 @@ $("#register").find(".close").click(function(){
         display:"none"
     })
 })
+$(".top-r").find(".login").click(function(){
+    $("#login").fadeIn(300);
+    $("#zhezhao").css({
+        display:"block"
+    })
+})
+$("#login").find(".close").click(function(){
+    $("#login").fadeOut(300);
+    $("#zhezhao").css({
+        display:"none"
+    })
+})
+
+
+//间歇文字滑过
+$("#top .top-l").find("li").hover(function(){
+    $(this).children("a").css({
+        color:"#fff"
+    })
+},function(){
+    $(this).children("a").css({
+        color:"#b89c5d"
+    })
+})
+
+
+})()
+
+//间歇文字轮播
+function autoScroll(obj){  
+    $(obj).find("ul").animate({  
+        marginTop : "-25px"  
+    },1000,function(){  
+        $(this).css({marginTop : "0px"}).find("li:first").appendTo(this);  
+    })  
+}
+$(function(){  
+    setInterval('autoScroll("#top .top-l")',3000);
+})
+
+
+//楼层切换
+$("#floor").find("dd").click(function(){
+    // console.log(1);
+//			console.log($(".floor").eq($(this).index()).offset().top);
+
+//			$(document).scrollTop($(".floor").eq($(this).index()).offset().top);
+            
+            
+//			获取点击的索引
+            var index = $(this).index();
+//			根据索引获取对应的楼层
+            var iNowFloor = $(".floor").eq(index-1);
+//			计算楼层距离顶部的位置
+            var t = iNowFloor.offset().top;
+//			将这个位置设置给滚动条
+            $("html").stop().animate({
+                scrollTop:t
+            })
+            
+ })
+
+ //注册
+ class Register{
+     constructor(){
+         this.ouser=$("#register #phonetxt");
+         this.opass=$("#register #passtxt");
+         this.otxt=$("#register #testxt");
+         this.ochk=$("#register #check");
+         this.obtn=$("#register .regist");
+         this.otip=$("#register .tip")
+         console.log(this.ouser);
+         this.addEvent();
+         this.tel=this.pas=0
+     }
+     addEvent(){
+        var that=this;
+        this.ouser.blur(function(){
+            var oureg=/^1[3-9]\d{9}$/;
+            if(oureg.test(that.ouser.val())){
+                // console.log(oureg.test($(this).val()))
+                that.otip.html("手机号√");
+                that.tel=1;
+            }else{
+                that.otip.html("手机格式错误！")
+            }
+        })
+        this.opass.blur(function(){
+            var opreg=/^\w{6,12}$/;
+            if(opreg.test(that.opass.val())){
+                that.pas=1;
+                that.otip.html("密码√");
+            }else{
+                that.otip.html("密码只能是数字字母下划线！")
+            }
+        })
+        this.obtn.click(function(){
+            if(that.ochk[0].checked && that.tel && that.pas){
+               var obj={
+                    user:that.ouser.val(),
+                    pass:that.opass.val()
+                }
+                console.log(obj)
+                setCookie(that.ouser.val(),JSON.stringify(obj),{
+                    expires:7
+                })
+                $("#register").fadeOut(300);
+                $("#login").fadeIn(300);
+            }
+        })
+        this.ouser.val("");
+        this.opass.val("");
+        this.otxt.val("");
+         
+     }
+     
+ }
+
+new Register();
+
+class Login{
+    constructor(){
+        this.ouser=$("#login #phonetxt");
+        this.opass=$("#login #passtxt");
+        this.otxt=$("#login #testxt");
+        this.ochk=$("#login #check");
+        this.obtn=$("#login .regist");
+        this.otip=$("#login .tip")
+        this.addEvent();
+    }
+    addEvent(){
+        var that=this;
+        this.obtn.click(function(){
+            if(getCookie(that.ouser.val())){
+                that.loginMsg = JSON.parse(getCookie(that.ouser.val()));
+                // console.log(loginMsg)
+                if(that.loginMsg.pass==that.opass.val()){
+                    $("#login").fadeOut(300);
+                    $("#zhezhao").css({
+                        display:"none"
+                    })
+                    $(".top-r").find(".login").html("登录成功");
+                    $(".top-r").find(".login").css({
+                        color:"#b4a078"
+                    })
+                }else{
+                    that.otip.html("密码错误！")
+                }
+            }else{
+                that.otip.html("该手机号不存在！")
+            }
+            
+        })
+            
+           
+       
+    }
+   
+    
+}
+new Login();

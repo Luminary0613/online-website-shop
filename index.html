@@ -77,11 +77,11 @@
 						<a href="#" class="active">分类垃圾袋</a><span>|</span><a href="#">便携榨汁机</a><span>|</span><a href="#">直流风扇199元</a><span>|</span><a href="#">变身水杯69元</a>
 					</div>
 				</div>
-				<a href="#" class="shopcar"><i></i>购物车<b class="red">0</b></a>
+				<a href="car.html" class="shopcar"><i></i>购物车<b class="red">0</b></a>
 			</div>
 			<nav>
 				<ul>
-					<li class="first"><a href="#" class="active">首页</a></li>
+					<li class="first"><a href="index.html" class="active">首页</a></li>
 					<li class="list"><a href="#">居家生活</a>
 						
 					</li>
@@ -349,7 +349,7 @@
 			</div>
 		</section>
 		<section id="recommend">
-			<div class="brand margin">
+			<div class="brand margin floor">
 				<div class="title">
 					<h2>品牌制造商</h2>
 					<p>工厂直达消费者，剔除品牌溢价</p>
@@ -400,7 +400,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="new">
+			<div class="new floor">
 				<div class="title margin">
 					<h2>新品首发</h2>
 					<p>为你寻觅世间好物</p>
@@ -474,7 +474,7 @@
 
 		</section>
 		<section id="hot">
-			<div class="margin">
+			<div class="margin floor">
 				<div class="title">
 					<h2>人气推荐</h2>
 					<span class="hot-page1 active">编辑推荐</span>
@@ -669,7 +669,7 @@
 					</div>
 			</div>
 		</section>
-		<section id="timeshop" class="margin">
+		<section id="timeshop" class="margin floor">
 			<div class="title">
 				<h2>限时购</h2>
 				<a href="#" class="more">更多抢购 ></a>
@@ -689,7 +689,7 @@
 					</div>
 				</div>
 				<div class="list-r">
-					<div class="mainbox">
+					<!-- <div class="mainbox">
 						<img src="img/timeshop1.png" class="img"/>
 						<div class="rbox">
 							<h3 class="hover">儿童五层收纳柜</h3>
@@ -748,7 +748,7 @@
 							<p>限时价<span>￥449</span><i>￥499</i></p>
 							<a href="#" class="shop">立即抢购</a>
 						</div>
-					</div>
+					</div> -->
 					
 				</div>
 					
@@ -756,7 +756,7 @@
 			</div>
 		</section>
 		<section id="fuli">
-			<div class="margin">
+			<div class="margin floor">
 				<div class="title">
 					<h2>福利社</h2>
 					<a href="#" class="more">查看全部福利 ></a>
@@ -871,7 +871,7 @@
 
 			</div>
 		</section>
-		<section id="homelife" class="margin">
+		<section id="homelife" class="margin floor">
 			<div class="title">
 				<h2>居家生活</h2>
 				
@@ -984,8 +984,8 @@
 		</footer>
 		<div id="zhezhao">
 
-			</div>
-		<section id="register">
+		</div>
+		<section id="register" class="userpass">
 			<i class="close"></i>
 			<div class="title">
 				<h2>手机号注册</h2>
@@ -1005,12 +1005,47 @@
 			<p class="pass">
 				<i></i><input type="text" id="passtxt" placeholder="请输入密码"/>
 			</p>
+			<span class="tip"></span>
 			<a href="#" class="regist">注册</a>
 			<input type="checkbox" id="check" checked="checked" /><span class="check">我同意<a href="">《服务条款》</a>和<a href="">《网易隐私政策》</a></span>
 		</section>
-		
+		<section id="login"class="userpass">
+			<i class="close"></i>
+			<div class="title">
+				<h2>手机号登录</h2>
+				<a href="#" class="login">直接登录</a>
+				<a href="#" class="email">邮箱注册</a>
+			</div>
+			<p class="phone">
+				<i></i><input type="text" id="phonetxt" placeholder="请输入手机号"/>
+			</p>
+			<div class="bar">	
+				<p><i><span></span></i></p>
+			   <em class="txt">请按住滑块，拖动到最右边</em>
+			</div>
+			<p class="test">
+				<input type="text" id="testxt" placeholder="&nbsp;&nbsp;请输入短信验证码"/><input type="button" id="tesbtn" value="获取验证码" class="hover"/>
+			</p>
+			<p class="pass">
+				<i></i><input type="text" id="passtxt" placeholder="请输入密码"/>
+			</p>
+			<span class="tip"></span>
+			<a href="#" class="regist">登录</a>
+		</section>
+		<section id="floor">
+			<dl>
+				<dt>- 热销榜 -</dt>
+				<dd><i></i><span>品牌制造商</span></dd>
+				<dd><i></i><span>新品首发站</span></dd>
+				<dd><i></i><span>人气推荐站</span></dd>
+				<dd><i></i><span>限时购抢购</span></dd>
+				<dd><i></i><span>福利社榜单</span></dd>
+				<dd><i></i><span>居家生活榜</span></dd>
+			</dl>
+		</section>
 	</body>
 	<script src="js/jquery.js"></script>
+	<script src="js/cookie.js"></script>
 	<script src="js/jquery.banner.2.0.3.js"></script>
 	<script src="js/jquery-banner-fade.js"></script>
 	<script src="js/index.js"></script>
