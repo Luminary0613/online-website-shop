@@ -117,7 +117,7 @@ footer .foot-b p span{font:12px/28px "";color:#999;margin:0 15px;}
 .userpass span.tip{font:12px/3 "";color:#bb3343;margin-left:10px;}
 .userpass .bar{width:298px;height:38px;background: #f7f9fa;position: relative;margin-top:16px;border-radius: 5px;border:1px solid #e8e8e8;}
 .userpass .bar .txt{font:14px/40px "";position:absolute;left:50px}
-.userpass .bar p{height:40px;width:20px;border:0;position:absolute;left:0;top:-1px;}
+.userpass .bar p{height:40px;width:20px;border:0;position:absolute;left:0;top:-1px;background:yellowgreen;}
 .userpass .bar p i{width:40px;height:40px;position:absolute;background:#fff;top:0px;left:0;border:solid 1px #ccc;box-sizing: border-box; border-radius: 5px;}
 .userpass .bar p i span{position:absolute;width:14px;height:10px;background: url(../img/login-icon.png) no-repeat center;background-position: 0 -26px;top:15px;left:12px;}
 .userpass .bar em{font:12px/40px "";color:#444;}

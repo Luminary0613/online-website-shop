@@ -51,6 +51,10 @@ header nav .menu dl dd i{display: inline-block;width:34px;vertical-align: middle
 header nav .menu:nth-child(3) dl dd i{background: url(../img/nav-2.png) no-repeat center;background-size: 50px 70px}
 header nav .menu:nth-child(4) dl dd i{background: url(../img/nav-3.png) no-repeat center;background-size: 50px 50px}
 header nav .menu:nth-child(5) dl dd i{background: url(../img/nav-4.png) no-repeat center;background-size: 50px 50px}
+header nav .menu:nth-child(6) dl dd i{background: url(https://yanxuan.nosdn.127.net/3fc9015f3ccebba3f34b06024b923a98.png) no-repeat center;background-size: 50px 50px}
+header nav .menu:nth-child(7) dl dd i{background: url(https://yanxuan.nosdn.127.net/5a165042f413da1d6a01a25de0a65952.png) no-repeat center;background-size: 50px 50px}
+header nav .menu:nth-child(8) dl dd i{background: url(https://yanxuan.nosdn.127.net/db9cd0d90269244c7167d18db493ec51.png) no-repeat center;background-size: 50px 50px}
+header nav .menu:nth-child(9) dl dd i{background: url(https://yanxuan.nosdn.127.net/64d736388656705f5ba7a0ab8b3c0945.png) no-repeat center;background-size: 50px 50px}
 header nav .menu dl dd span{font:12px/34px "";color:#333;vertical-align: middle;margin-left:10px;}
 
 #banner{height:420px;overflow: hidden;}
@@ -268,6 +272,7 @@ header nav .menu dl dd span{font:12px/34px "";color:#333;vertical-align: middle;
 #introduce .intro-r img{display:block;margin:0 auto;}
 #introduce .intro-r span{color:#b4a078;font:12px/32px "";}
 
+
 footer{height:250px;background: #414141;}
 footer .foot-t{height:118px;border-bottom:1px solid #555}
 footer .foot-t ul{padding:37px 0 30px;display: flex;}
@@ -304,7 +309,7 @@ footer .foot-b p span{font:12px/28px "";color:#999;margin:0 15px;}
 .userpass span.tip{font:12px/3 "";color:#bb3343;margin-left:10px;}
 .userpass .bar{width:298px;height:38px;background: #f7f9fa;position: relative;margin-top:16px;border-radius: 5px;border:1px solid #e8e8e8;}
 .userpass .bar .txt{font:14px/40px "";position:absolute;left:50px}
-.userpass .bar p{height:40px;width:20px;border:0;position:absolute;left:0;top:-1px;}
+.userpass .bar p{height:40px;width:20px;border:0;position:absolute;left:0;top:-1px;background:yellowgreen;}
 .userpass .bar p i{width:40px;height:40px;position:absolute;background:#fff;top:0px;left:0;border:solid 1px #ccc;box-sizing: border-box; border-radius: 5px;}
 .userpass .bar p i span{position:absolute;width:14px;height:10px;background: url(../img/login-icon.png) no-repeat center;background-position: 0 -26px;top:15px;left:12px;}
 .userpass .bar em{font:12px/40px "";color:#444;}

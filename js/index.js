@@ -11,7 +11,8 @@
 class Ajax{
     constructor(){
         this.url="http://localhost:8181/data/goods.json";
-        this.url2="http://localhost:8181/data/goods2.json"
+        this.url2="http://localhost:8181/data/goods2.json";
+        this.url3="http://localhost:8181/data/menu.json";
         this.lbox=document.querySelector("#hot .main-l");
         console.log(this.lbox);
         this.oul=document.querySelector(".main-r ul");
@@ -36,6 +37,14 @@ class Ajax{
                 that.display2();
             }
         })
+        // $.ajax({
+        //     url:this.url3,
+        //     success:function(res3){
+        //         that.res3=res3;
+        //         console.log(that.res3)
+        //         that.display3();
+        //     }
+        // })
     }
     display(){
         var str1 = "";
@@ -152,6 +161,72 @@ class Ajax{
         })
         
     }
+    // display3(){
+    //     var str4="";
+    //     for(var i=0;i<this.res3.length;i++){
+    //     str4 += `<div class="menu list">
+    //                 <dl>
+    //                     <dt>${this.res3[i].title1}</dt>
+    //                     <dd><i></i><span class="hover">夏凉热卖</span></dd>
+    //                     <dd><i></i><span class="hover">主题床品</span></dd>
+    //                     <dd><i></i><span class="hover">北欧原木</span></dd>
+    //                     <dd><i></i><span class="hover">餐厨系列</span></dd>
+    //                 </dl>
+    //                 <dl>
+    //                     <dt>${this.res3[i].title2}</dt>
+    //                     <dd><i></i><span class="hover">夏凉热卖</span></dd>
+    //                     <dd><i></i><span class="hover">主题床品</span></dd>
+    //                     <dd><i></i><span class="hover">北欧原木</span></dd>
+    //                     <dd><i></i><span class="hover">餐厨系列</span></dd>
+    //                 </dl>
+    //                 <dl>
+    //                     <dt>${this.res3[i].title3}</dt>
+    //                     <dd><i></i><span class="hover">夏凉热卖</span></dd>
+    //                     <dd><i></i><span class="hover">主题床品</span></dd>
+    //                     <dd><i></i><span class="hover">北欧原木</span></dd>
+    //                     <dd><i></i><span class="hover">餐厨系列</span></dd>
+    //                 </dl>
+    //                 <dl>
+    //                     <dt>${this.res3[i].title4}</dt>
+    //                     <dd><i></i><span class="hover">夏凉热卖</span></dd>
+    //                     <dd><i></i><span class="hover">主题床品</span></dd>
+    //                     <dd><i></i><span class="hover">北欧原木</span></dd>
+    //                     <dd><i></i><span class="hover">餐厨系列</span></dd>
+    //                 </dl>
+    //                 <dl>
+    //                     <dt>收纳日用</dt>
+    //                     <dd><i></i><span class="hover">夏凉热卖</span></dd>
+    //                     <dd><i></i><span class="hover">主题床品</span></dd>
+    //                     <dd><i></i><span class="hover">北欧原木</span></dd>
+    //                     <dd><i></i><span class="hover">餐厨系列</span></dd>
+    //                 </dl>
+    //                 <dl>
+    //                     <dt>厨房用品</dt>
+    //                     <dd><i></i><span class="hover">夏凉热卖</span></dd>
+    //                     <dd><i></i><span class="hover">主题床品</span></dd>
+    //                     <dd><i></i><span class="hover">北欧原木</span></dd>
+    //                     <dd><i></i><span class="hover">餐厨系列</span></dd>
+    //                 </dl>
+    //                 <dl>
+    //                     <dt>餐具水具</dt>
+    //                     <dd><i></i><span class="hover">夏凉热卖</span></dd>
+    //                     <dd><i></i><span class="hover">主题床品</span></dd>
+    //                     <dd><i></i><span class="hover">北欧原木</span></dd>
+    //                     <dd><i></i><span class="hover">餐厨系列</span></dd>
+    //                 </dl>
+    //                 <dl>
+    //                     <dt>宠物生活</dt>
+    //                     <dd><i></i><span class="hover">夏凉热卖</span></dd>
+    //                     <dd><i></i><span class="hover">主题床品</span></dd>
+    //                     <dd><i></i><span class="hover">北欧原木</span></dd>
+    //                     <dd><i></i><span class="hover">餐厨系列</span></dd>
+    //                 </dl>
+    //             </div>`;
+    //     }
+    //     this.rlist.innerHTML = str4;
+        
+        
+    // }
 }
 new Ajax();
 
@@ -490,49 +565,104 @@ $("nav").find("menu").hover({
 
 })
 
+//nav粘性定位
+// $(document).scroll(function(){
+//    console.log($(this).scrollTop())
+//    if($(this).scrollTop() > 114){
+//        $("header nav").css({
+//            position:"sticky",
+//            top:0,
+//            zIndex:999
+//        })
+//    }
+// })
 //拖拽
-// class Drag{
-//     constructor(){
-//         this.obar=document.querySelector("#register .bar");
-// 		this.op=document.querySelector("#register .bar p");
-//         this.oi=document.querySelector("#register .bar i");
-//         this.otxt=document.querySelector("#register .bar .txt")
-//         this.addEvent();
+// window.onload=function(){
+//     //事件:滑块1.按下  onmousedown
+//         //2.拖动 onmousemove
+//         //3.松开 onmouseup
+//         var flag=false; //处理验证是否通过  默认是不通过
+//         var box=document.querySelector("#register .bar");//大盒子
+//         var btn=document.querySelector("#register .bar i");//滑块
+//         var text=document.querySelector("#register .bar .txt");//文字
+//         var bg=document.querySelector("#register .bar p");//背景
+//         //按下
+//         btn.onmousedown=function(e){
+//             var downX=e.clientX; //按下按钮后与窗口的x轴间距
+//             //移动
+//             btn.onmousemove=function(e){
+//                 var moveX=e.clientX-downX; //滑动的时候距离窗口的x轴的间距  滑动的x-按下的x             
+//                 //只有在大于0的时候才拖动
+//                 if(moveX>0){
+//                     btn.style.left=moveX+'px';//滑块与左边的距离
+//                     bg.style.width=moveX+'px'; //背景的宽度就是滑块距离左边的位置
+//                     //验证成功 条件 不能> 盒子的宽度-滑块的宽度 
+//                     if(moveX>=(box.offsetWidth-btn.offsetWidth)){
+//                         text.innerText='验证成功';
+//                         text.style.color='#fff';
+//                         btn.onmousemove=null; //清除拖动事件
+//                         btn.onmousedown=null; //清除按下事件
+//                         flag=true; //通过的时候设置为true
+//                     }
+//                 }
+                
+//             }
+//         }
+        
+//         //松开
+//         btn.onmouseup=function(){
+//             //为假的时候
+//             if(flag==false){
+//                 btn.onmousemove=null;//清除事件
+//                 btn.style.left=0;
+//                 bg.style.width=0;
+//             }
+            
+//         }
 //     }
-//     addEvent(){
-//         var that=this;
-//         this.oi.onmousedown = function(eve){
-// 	        var e = eve || window.event;
-//             var x = e.offsetX;
-//             var those=that;
-// 	        document.onmousemove = function(eve){
-// 	            var e = eve || window.event;
-// 	            var l = e.clientX - x - those.obar.offsetLeft;
-// 	            if(l<=0) l=0;
-// 	            if(l>those.obar.offsetWidth - those.oi.offsetWidth){
-// 	               l = those.obar.offsetWidth - those.oi.offsetWidth;
-//                    those.otxt.innerHTML="验证成功";
-// 	               those.otxt.style.color="#fff";
+class Drag{
+    constructor(){
+        this.obar=document.querySelector("#register .bar");
+		    this.op=document.querySelector("#register .bar p");
+        this.oi=document.querySelector("#register .bar i");
+        this.otxt=document.querySelector("#register .bar .txt")
+        this.addEvent();
+    }
+    addEvent(){
+        var that=this;
+        this.oi.onmousedown = function(eve){
+            console.log(1111111);
+	        var e = eve || window.event;
+            var x = e.clientX;
+	        document.onmousemove = function(eve){
+                console.log(2111111);
+	            var e = eve || window.event;
+	            var l = e.clientX - x - that.obar.offsetLeft;
+	            if(l<=0) l=0;
+	            if(l>that.obar.offsetWidth - that.oi.offsetWidth){
+	               l = that.obar.offsetWidth - that.oi.offsetWidth;
+                   that.otxt.innerHTML="验证成功";
+	               that.otxt.style.color="#fff";
 	               
 	                
-// 	            }
-// 	            if(l!=those.obar.offsetWidth - those.oi.offsetWidth){
-// 	            	those.otxt.innerHTML="请按住滑块，拖动到最右边";
-// 	            	those.otxt.style.color="#000";
+	            }
+	            if(l!=that.obar.offsetWidth - that.oi.offsetWidth){
+	            	that.otxt.innerHTML="请按住滑块，拖动到最右边";
+	            	that.otxt.style.color="#000";
 	            	
-// 	            }
-// 	            those.oi.style.left = l + "px";
-// 	            those.op.style.width = l+20 + "px";
+	            }
+	            that.oi.style.left = l + "px";
+	            that.op.style.width = l+20 + "px";
 	            
-// 	        }
-// 	        document.onmouseup = function(){
-// 	            document.onmousemove = null;
-// 	            document.onmouseup = null;
-// 	        }
-// 	    }
-//     }
-// }
-// new Drag();
+	        }
+	        document.onmouseup = function(){
+	            document.onmousemove = null;
+	            document.onmouseup = null;
+	        }
+	    }
+    }
+}
+new Drag();
 // var obar=document.querySelector("#register .bar");
 // var op=document.querySelector("#register .bar p");
 // var oi=document.querySelector("#register .bar i");
@@ -566,18 +696,18 @@ $("nav").find("menu").hover({
 //     }
 // }
 
-$("#register").find("i").mousedown(function(eve){
-    // console.log($(this))
-    var e=eve||window.event;
-    var x=e.offsetX;
-    // console.log(1);
-    $(document).mousemove(function(eve){
-        var e=eve||window.event;
-        // console.log(1);
-        console.log($("#register .bar").offset().left);
-        // var l = e.clientX - x - $("#register .bar").offset().left;
-    })
-})
+// $("#register").find("i").mousedown(function(eve){
+//     // console.log($(this))
+//     var e=eve||window.event;
+//     var x=e.offsetX;
+//     // console.log(1);
+//     $(document).mousemove(function(eve){
+//         var e=eve||window.event;
+//         // console.log(1);
+//         console.log($("#register .bar").offset().left);
+//         // var l = e.clientX - x - $("#register .bar").offset().left;
+//     })
+// })
 
 $(".top-r").find(".register").click(function(){
     $("#register").fadeIn(300);
